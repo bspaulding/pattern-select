@@ -1,0 +1,19 @@
+<element name="pattern-select" attributes="pattern">
+  <link rel="stylesheet" href="pattern-select.css"/>
+  <template>
+    <div class="shadowed-input">
+      <input name="atimestamp" type="text" autofocus/>
+      <input name="shadow" type="text" value="{{pattern}}"/>
+      <select>
+        <option>00</option>
+      </select>
+    </div>
+  </template>
+  <script>
+    if ( this !== window ) {
+      Polymer.register(this, {
+        pattern: ''
+      });
+    }
+  </script>
+</element>

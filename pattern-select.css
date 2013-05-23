@@ -1,0 +1,39 @@
+body {
+  background: rgb(235,235,235);
+  font-size: 18px;
+}
+.shadowed-input {
+  position: relative;
+}
+.shadowed-input select,
+.shadowed-input input {
+  font-size: 18px;
+  position: absolute;
+  z-index: 1;
+}
+.shadowed-input input {
+  top: 0px; left: 0px;
+  background: none;
+}
+.shadowed-input input[name=shadow] {
+  background: white;
+  z-index: 0;
+  color: rgb(215,215,215);
+}
+.shadowed-input select {
+  -webkit-appearance: none;
+  border-color: rgb(215,215,215);
+  color: rgb(215,215,215);
+  top: 2px; left: 131px;
+  padding: 0px 4px;
+  opacity: 0;
+
+  -webkit-transition: 0.5s all ease;
+}
+.shadowed-input select:hover {
+  opacity: 1;
+}
+.shadowed-input select::selection {
+  border: none;
+}
+
