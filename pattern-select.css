@@ -8,10 +8,10 @@ body {
 .shadowed-input select,
 .shadowed-input input {
   font-size: 18px;
-  position: absolute;
   z-index: 1;
 }
 .shadowed-input input {
+  position: absolute;
   top: 0px; left: 0px;
   background: none;
 }
@@ -24,7 +24,6 @@ body {
   -webkit-appearance: none;
   border-color: rgb(215,215,215);
   color: rgb(215,215,215);
-  top: 2px; left: 131px;
   padding: 0px 4px;
   opacity: 0;
 

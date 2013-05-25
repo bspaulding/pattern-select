@@ -3,16 +3,44 @@
   <template>
     <div class="shadowed-input">
       <input name="atimestamp" type="text" autofocus/>
-      <input name="shadow" type="text" value="{{pattern}}"/>
-      <select>
-        <option>00</option>
-      </select>
+      <input name="shadow" type="text" value="{{placeholder}}"/>
     </div>
   </template>
   <script>
     if ( this !== window ) {
       Polymer.register(this, {
-        pattern: ''
+        pattern: '',
+        placeholder: '',
+        ready: function() {
+          // TODO: Snag selects from content and append to shadowed-input
+          this.updatePlaceholder();
+        },
+        tokens: function() {
+          var tokenizer = /<([a-z]+)>/gi;
+          var matches = [];
+          var match;
+          while ( match = tokenizer.exec(this.pattern) ) {
+            matches.push(match[1]);
+          }
+          return matches;
+        },
+        placeholderForTokenName: function(tokenName) {
+          return this.querySelector('select[name='.concat(tokenName).concat(']')).getAttribute('placeholder');
+        },
+        updatePlaceholder: function() {
+          var i; var placeholder; var token;
+          var result = this.pattern;
+          var tokens = this.tokens();
+
+          for ( i = 0; i < tokens.length; i += 1 ) {
+            token = tokens[i];
+            placeholder = this.placeholderForTokenName(token);
+            replacer = RegExp('<'.concat(token).concat('>'));
+            result = result.replace(replacer, placeholder);
+          }
+
+          this.placeholder = result;
+        }
       });
     }
   </script>
