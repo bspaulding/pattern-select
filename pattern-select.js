@@ -1,4 +1,4 @@
-(function() {
+var patternSelectKeyUpHandler = (function() {
   var makeHandler = function(source, shadow, initialShadow) {
     return function() {
       if ( source.value.length === 0 ) {
@@ -17,8 +17,10 @@
     };
   };
 
-  var source = document.querySelector('input[name=atimestamp]');
-  var shadow = document.querySelector('input[name=shadow]');
-  source.addEventListener('keyup', makeHandler(source, shadow, shadow.value));
-}())
+  // var source = document.querySelector('input[name=atimestamp]');
+  // var shadow = document.querySelector('input[name=shadow]');
+  // source.addEventListener('keyup', makeHandler(source, shadow, shadow.value));
+
+  return makeHandler;
+}());
 

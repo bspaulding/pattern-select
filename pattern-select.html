@@ -9,12 +9,20 @@
   </template>
   <script>
     if ( this !== window ) {
+      var template = this.querySelector('template');
+      var templateHTML = template.innerHTML;
+      var source = this.querySelector('input[name=atimestamp]');
+      var shadow = this.querySelector('input[name=shadow]');
+
       Polymer.register(this, {
         pattern: '',
         placeholder: '',
         ready: function() {
           // TODO: Snag selects from content and append to shadowed-input
           this.updatePlaceholder();
+          // source.addEventListener('keyup', patternSelectKeyUpHandler(source, shadow, shadow.value));
+          var unwrappedTemplate;
+          debugger;
         },
         tokens: function() {
           var tokenizer = /<([a-z]+)>/gi;
