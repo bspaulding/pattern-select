@@ -1,0 +1,7 @@
+Usage
+=====
+
+```
+bundle install
+rackup
+```
